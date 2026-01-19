@@ -3,49 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <title>Incident Report – www.aigaia.com.cy Outage (19 Jan 2026)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222;
+      --heading: #1a1a1a;
+      --border: #ccc;
+      --subtle-border: #ddd;
+      --code-bg: #f5f5f5;
+      --table-header: #f0f0f0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1115;
+        --text: #e6e6e6;
+        --heading: #f1f1f1;
+        --border: #444;
+        --subtle-border: #333;
+        --code-bg: #1a1d23;
+        --table-header: #1f232b;
+      }
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
-      color: #222;
+      color: var(--text);
+      background-color: var(--bg);
       margin: 40px;
     }
+
     h1, h2, h3 {
-      color: #1a1a1a;
+      color: var(--heading);
     }
+
     h1 {
-      border-bottom: 2px solid #ccc;
+      border-bottom: 2px solid var(--border);
       padding-bottom: 10px;
     }
+
     h2 {
       margin-top: 40px;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid var(--subtle-border);
       padding-bottom: 6px;
     }
+
     ul {
       margin-left: 20px;
     }
+
     code, pre {
-      background-color: #f5f5f5;
-      padding: 8px;
+      background-color: var(--code-bg);
+      padding: 10px;
       display: block;
-      border-left: 4px solid #ccc;
+      border-left: 4px solid var(--border);
       overflow-x: auto;
     }
+
     table {
       border-collapse: collapse;
       width: 100%;
       margin-top: 20px;
     }
+
     table, th, td {
-      border: 1px solid #ccc;
+      border: 1px solid var(--border);
     }
+
     th, td {
       padding: 10px;
       text-align: left;
     }
+
     th {
-      background-color: #f0f0f0;
+      background-color: var(--table-header);
     }
   </style>
 </head>
@@ -73,7 +107,7 @@ Post-incident technical analysis indicates that the outage was most likely cause
 rather than a client-side DNS cache issue as initially communicated by the hosting provider.
 </p>
 
----
+<hr>
 
 <h2>2. Timeline of Events</h2>
 
@@ -86,7 +120,7 @@ rather than a client-side DNS cache issue as initially communicated by the hosti
   <li><strong>Post-incident</strong> – DNS, TLS, and HTTP-layer diagnostics performed</li>
 </ul>
 
----
+<hr>
 
 <h2>3. Technical Findings</h2>
 
@@ -106,7 +140,7 @@ rather than a long-standing stable configuration.
 This aligns with emergency troubleshooting or rollback activity.
 </p>
 
----
+<hr>
 
 <h3>3.2 TLS / SSL Configuration</h3>
 
@@ -123,7 +157,7 @@ The hosting endpoint and application stack existed prior to the incident.
 The outage was not caused by a new deployment, server rebuild, or TLS reconfiguration.
 </p>
 
----
+<hr>
 
 <h3>3.3 HTTP / Application Layer Verification</h3>
 
@@ -166,7 +200,7 @@ This conclusively rules out:
   <li>Broken virtual host configuration</li>
 </ul>
 
----
+<hr>
 
 <h2>4. Root Cause Assessment</h2>
 
@@ -186,13 +220,9 @@ performed after the outage began, pointing traffic back to an already running se
   <li>Application or server crash</li>
 </ul>
 
----
+<hr>
 
 <h2>5. Service Management & Process Failures</h2>
-
-<p>
-Regardless of whether the change was reactive or planned, the following deficiencies were identified:
-</p>
 
 <ul>
   <li><strong>No proactive monitoring:</strong> The provider did not detect or alert on the outage</li>
@@ -202,7 +232,7 @@ Regardless of whether the change was reactive or planned, the following deficien
   <li><strong>Legacy environment indicators:</strong> PHP 5.6 (end-of-life) suggests weak operational hygiene</li>
 </ul>
 
----
+<hr>
 
 <h2>6. Impact</h2>
 
@@ -213,7 +243,7 @@ Regardless of whether the change was reactive or planned, the following deficien
   <li>Internal time spent on investigation and escalation</li>
 </ul>
 
----
+<hr>
 
 <h2>7. Recommendations</h2>
 
@@ -224,7 +254,7 @@ Regardless of whether the change was reactive or planned, the following deficien
   <li>Review suitability of current hosting provider for critical services</li>
 </ul>
 
----
+<hr>
 
 <h2>8. Conclusion</h2>
 
