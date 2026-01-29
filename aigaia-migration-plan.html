@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Migration Plan - Aigaia School of Art & Design</title>
+    <style>
+        :root {
+            --primary-blue: #1F4E79;
+            --light-blue: #D6E3F8;
+            --light-green: #D5F5E3;
+            --light-yellow: #FCF3CF;
+            --light-red: #FADBD8;
+            --light-gray: #F5F5F5;
+            --text-color: #333;
+            --border-color: #CCCCCC;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+
+        .document-container {
+            background: white;
+            padding: 40px 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* Header Styles */
+        .title-page {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 3px solid var(--primary-blue);
+            margin-bottom: 40px;
+        }
+
+        .title-page h1 {
+            color: var(--primary-blue);
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .title-page .subtitle {
+            font-size: 1.5em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .title-page .confidential {
+            color: #CC0000;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-top: 40px;
+            padding: 10px 30px;
+            border: 2px solid #CC0000;
+            display: inline-block;
+        }
+
+        .title-page .meta {
+            color: #666;
+            font-size: 0.95em;
+            margin-top: 30px;
+        }
+
+        /* Heading Styles */
+        h1 {
+            color: var(--primary-blue);
+            font-size: 1.8em;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            font-size: 1.4em;
+            margin-top: 35px;
+        }
+
+        h3 {
+            font-size: 1.15em;
+            margin-top: 25px;
+            color: #444;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--light-gray);
+            padding: 30px 40px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc > ul > li {
+            margin: 12px 0;
+        }
+
+        .toc ul ul {
+            padding-left: 25px;
+            margin-top: 8px;
+        }
+
+        .toc ul ul li {
+            margin: 6px 0;
+            font-size: 0.95em;
+        }
+
+        .toc a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Risk Level Colors */
+        .risk-critical { background-color: var(--light-red) !important; font-weight: bold; }
+        .risk-high { background-color: var(--light-yellow) !important; font-weight: bold; }
+        .risk-low { background-color: var(--light-green) !important; font-weight: bold; }
+        .access-direct { background-color: var(--light-green) !important; }
+        .access-none { background-color: var(--light-red) !important; }
+        .access-partial { background-color: var(--light-yellow) !important; }
+
+        /* List Styles */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        /* Alert/Warning Boxes */
+        .alert {
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .alert-warning {
+            background-color: var(--light-yellow);
+            border-left: 4px solid #f0ad4e;
+        }
+
+        .alert-danger {
+            background-color: var(--light-red);
+            border-left: 4px solid #d9534f;
+        }
+
+        .alert-info {
+            background-color: var(--light-blue);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .alert-success {
+            background-color: var(--light-green);
+            border-left: 4px solid #5cb85c;
+        }
+
+        /* Checklist Styles */
+        .checklist {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .checklist td:first-child {
+            width: 40px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            border-top: 2px solid var(--light-blue);
+            margin: 50px 0;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .document-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .document-container {
+                padding: 20px;
+            }
+            table {
+                font-size: 0.85em;
+            }
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .back-to-top:hover {
+            background: #163d5c;
+        }
+
+        /* Mitigation boxes */
+        .mitigation {
+            background: #f8f9fa;
+            border-left: 3px solid var(--primary-blue);
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .mitigation strong {
+            color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="document-container">
+        <!-- Title Page -->
+        <div class="title-page" id="top">
+            <h1>IT SERVICE MIGRATION PLAN</h1>
+            <div class="subtitle">Aigaia School of Art & Design Ltd</div>
+            <p style="color: #666; font-size: 1.1em;">Migration from SKWebline Ltd to New Provider</p>
+            <p style="color: #666;">Target Completion: September 2026</p>
+            <div class="confidential">CONFIDENTIAL</div>
+            <div class="meta">
+                <p>Document Version: 1.0</p>
+                <p>Date: 29 January 2026</p>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#section1">1. Executive Summary</a>
+                    <ul>
+                        <li><a href="#section1-1">1.1 Current Situation Overview</a></li>
+                        <li><a href="#section1-2">1.2 Key Risks Identified</a></li>
+                    </ul>
+                </li>
+                <li><a href="#section2">2. Current Asset Inventory</a>
+                    <ul>
+                        <li><a href="#section2-1">2.1 Domain Portfolio</a></li>
+                        <li><a href="#section2-2">2.2 DNS Management</a></li>
+                        <li><a href="#section2-3">2.3 Websites and Hosting</a></li>
+                        <li><a href="#section2-4">2.4 E-Shop Technical Details</a></li>
+                        <li><a href="#section2-5">2.5 Email and Office 365</a></li>
+                        <li><a href="#section2-6">2.6 Newsletter System</a></li>
+                    </ul>
+                </li>
+                <li><a href="#section3">3. Risk Assessment</a></li>
+                <li><a href="#section4">4. Threat Scenarios and Mitigations</a>
+                    <ul>
+                        <li><a href="#section4-1">4.1 Domain-Related Threats</a></li>
+                        <li><a href="#section4-2">4.2 DNS-Related Threats</a></li>
+                        <li><a href="#section4-3">4.3 Website and Hosting Threats</a></li>
+                        <li><a href="#section4-4">4.4 E-Shop Specific Threats</a></li>
+                        <li><a href="#section4-5">4.5 Email-Related Threats</a></li>
+                        <li><a href="#section4-6">4.6 Data and Privacy Threats</a></li>
+                    </ul>
+                </li>
+                <li><a href="#section5">5. Immediate Actions (Before Announcing Migration)</a></li>
+                <li><a href="#section6">6. New Provider Selection</a></li>
+                <li><a href="#section7">7. E-Shop Contingency Planning</a></li>
+                <li><a href="#section8">8. Migration Timeline</a></li>
+                <li><a href="#section9">9. Communication Strategy</a></li>
+                <li><a href="#section10">10. Legal Considerations</a></li>
+                <li><a href="#section11">11. Migration Checklist</a></li>
+                <li><a href="#appendix">Appendix A: Technical Reference</a></li>
+            </ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 1: Executive Summary -->
+        <h1 id="section1">1. Executive Summary</h1>
+        <p>This document provides a comprehensive plan for migrating Aigaia School of Art & Design's IT services from the current provider (SKWebline Ltd) to a new provider. The migration is targeted for completion by the end of September 2026.</p>
+        <p>The plan addresses significant concerns about the current provider's reliability, including unresolved configuration errors and a DNS change made without client notification that caused service outages. Given these concerns, this plan includes extensive safeguards against potential vindictive actions or negligence during the transition period.</p>
+
+        <h2 id="section1-1">1.1 Current Situation Overview</h2>
+        <p>The client currently relies on SKWebline Ltd for domain management, DNS, website hosting, and e-commerce services. While Office 365 and the newsletter system (Brevo) are securely under client control, critical infrastructure including DNS records, website files, and the custom e-shop remain accessible only to the provider.</p>
+
+        <h2 id="section1-2">1.2 Key Risks Identified</h2>
+        <div class="alert alert-danger">
+            <ul style="margin: 0;">
+                <li>No client access to Cloudflare DNS (controls email delivery and website routing)</li>
+                <li>Two domains (theatroaigaia.com, artshopaigaia.com) with unclear ownership</li>
+                <li>No backups of website files, databases, or e-shop source code</li>
+                <li>Custom e-shop with proprietary code that may be difficult to replicate</li>
+                <li>History of provider making changes without notification</li>
+            </ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 2: Current Asset Inventory -->
+        <h1 id="section2">2. Current Asset Inventory</h1>
+
+        <h2 id="section2-1">2.1 Domain Portfolio</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Purpose</th>
+                    <th>Registrar</th>
+                    <th>Expiration</th>
+                    <th>Client Access</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>aigaia.com.cy</td>
+                    <td>Main website</td>
+                    <td>nic.cy</td>
+                    <td>31/12/2026</td>
+                    <td class="access-direct">DIRECT</td>
+                </tr>
+                <tr>
+                    <td>theatroaigaia.com</td>
+                    <td>Newsletter sending</td>
+                    <td>NETIM</td>
+                    <td>14/10/2026</td>
+                    <td class="access-none">NONE</td>
+                </tr>
+                <tr>
+                    <td>artshopaigaia.com</td>
+                    <td>E-commerce shop</td>
+                    <td>NETIM</td>
+                    <td>26/01/2027</td>
+                    <td class="access-none">NONE</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="section2-2">2.2 DNS Management</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>DNS Provider</th>
+                    <th>Client Access</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>aigaia.com.cy</td>
+                    <td>Cloudflare</td>
+                    <td class="access-none">None - Provider controls</td>
+                </tr>
+                <tr>
+                    <td>theatroaigaia.com</td>
+                    <td>Cloudflare</td>
+                    <td class="access-none">None - Provider controls</td>
+                </tr>
+                <tr>
+                    <td>artshopaigaia.com</td>
+                    <td>skwebline.net</td>
+                    <td class="access-none">None - Provider controls</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="section2-3">2.3 Websites and Hosting</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Website</th>
+                    <th>Platform</th>
+                    <th>Hosting</th>
+                    <th>Client Access</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>aigaia.com.cy</td>
+                    <td>WordPress</td>
+                    <td>Unknown (likely AWS)</td>
+                    <td class="access-partial">Content only</td>
+                </tr>
+                <tr>
+                    <td>artshopaigaia.com</td>
+                    <td>Custom PHP/MVC</td>
+                    <td>SKWebline servers</td>
+                    <td class="access-partial">Add products only</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="section2-4">2.4 E-Shop Technical Details</h2>
+        <p>The e-commerce platform at artshopaigaia.com is a custom-built solution with the following characteristics:</p>
+        <ul>
+            <li>Custom PHP backend (likely Laravel or proprietary MVC framework)</li>
+            <li>Custom checkout flow</li>
+            <li>Custom shipping integration (BoxNow)</li>
+            <li>Custom admin panel (not WordPress-based)</li>
+            <li>Database contains products, customers, and order history</li>
+        </ul>
+        <div class="alert alert-warning">
+            <em>This custom nature significantly increases migration complexity and risk.</em>
+        </div>
+
+        <h2 id="section2-5">2.5 Email and Office 365</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Status</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Office 365 Tenant</td>
+                    <td>Client-owned (Aigaia School)</td>
+                    <td class="risk-low">LOW</td>
+                </tr>
+                <tr>
+                    <td>Admin Access</td>
+                    <td>Full (users, passwords, billing)</td>
+                    <td class="risk-low">LOW</td>
+                </tr>
+                <tr>
+                    <td>Partner Relationships</td>
+                    <td>SKWebline - No roles assigned</td>
+                    <td class="risk-low">LOW</td>
+                </tr>
+                <tr>
+                    <td>Email Domain</td>
+                    <td>@aigaia.com.cy</td>
+                    <td class="risk-low">LOW</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="section2-6">2.6 Newsletter System</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Status</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Platform</td>
+                    <td>Brevo</td>
+                    <td class="risk-low">LOW</td>
+                </tr>
+                <tr>
+                    <td>Client Access</td>
+                    <td>Exclusive (SKWebline has no access)</td>
+                    <td class="risk-low">LOW</td>
+                </tr>
+                <tr>
+                    <td>DKIM Status</td>
+                    <td>Broken since Jan 2026 DNS change</td>
+                    <td class="risk-high">MEDIUM</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 3: Risk Assessment -->
+        <h1 id="section3">3. Risk Assessment</h1>
+
+        <h2>3.1 Risk Matrix</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Asset/Service</th>
+                    <th>Risk Level</th>
+                    <th>Impact if Lost</th>
+                    <th>Recovery Difficulty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>E-shop source code</td>
+                    <td class="risk-critical">CRITICAL</td>
+                    <td>Business revenue loss</td>
+                    <td>Very High - Custom code</td>
+                </tr>
+                <tr>
+                    <td>E-shop database</td>
+                    <td class="risk-critical">CRITICAL</td>
+                    <td>Customer/order data loss</td>
+                    <td>Impossible if no backup</td>
+                </tr>
+                <tr>
+                    <td>DNS records</td>
+                    <td class="risk-high">HIGH</td>
+                    <td>All services offline</td>
+                    <td>Medium - Reconstructable</td>
+                </tr>
+                <tr>
+                    <td>WordPress files</td>
+                    <td class="risk-high">HIGH</td>
+                    <td>Website offline</td>
+                    <td>Medium - Standard platform</td>
+                </tr>
+                <tr>
+                    <td>theatroaigaia.com</td>
+                    <td class="risk-high">HIGH</td>
+                    <td>Newsletter delivery fails</td>
+                    <td>Medium - If ownership proven</td>
+                </tr>
+                <tr>
+                    <td>artshopaigaia.com</td>
+                    <td class="risk-high">HIGH</td>
+                    <td>E-shop inaccessible</td>
+                    <td>Medium - If ownership proven</td>
+                </tr>
+                <tr>
+                    <td>Office 365</td>
+                    <td class="risk-low">LOW</td>
+                    <td>N/A - Client controlled</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Brevo newsletters</td>
+                    <td class="risk-low">LOW</td>
+                    <td>N/A - Client controlled</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 4: Threat Scenarios -->
+        <h1 id="section4">4. Threat Scenarios and Mitigations</h1>
+        <p>This section identifies potential harmful actions the current provider could take (whether through negligence or intent) and provides specific countermeasures.</p>
+
+        <h2 id="section4-1">4.1 Domain-Related Threats</h2>
+
+        <h3>Threat: Allowing domain registration to lapse</h3>
+        <p>The provider could fail to renew theatroaigaia.com or artshopaigaia.com, causing them to expire and potentially be acquired by third parties.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Demand written confirmation of domain registrant details from SKWebline immediately</li>
+                <li>Set calendar reminders 90 days before each expiration date</li>
+                <li>Request transfer of domains to client-controlled registrar before announcing migration</li>
+                <li>If registered to client, contact NETIM directly to verify and potentially gain direct access</li>
+            </ul>
+        </div>
+
+        <h3>Threat: Refusing to unlock domains for transfer</h3>
+        <p>All three .com domains currently have "client transfer prohibited" status. The provider could refuse to remove this lock.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Obtain written agreement for domain transfer before announcing migration intent</li>
+                <li>For NETIM domains: Contact NETIM directly if registered in client's name</li>
+                <li>File ICANN complaint if provider refuses legitimate transfer request</li>
+                <li>Engage legal counsel if significant business impact occurs</li>
+            </ul>
+        </div>
+
+        <h3>Threat: Claiming ownership of domains</h3>
+        <p>If domains are registered in SKWebline's name, they could claim ownership.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Gather all invoices showing client paid for domain registrations</li>
+                <li>Locate original service contract specifying asset ownership</li>
+                <li>Document email correspondence about domain purchases</li>
+                <li>Prepare for potential legal dispute or negotiated buyout</li>
+            </ul>
+        </div>
+
+        <h2 id="section4-2">4.2 DNS-Related Threats</h2>
+
+        <h3>Threat: Deleting or modifying DNS records</h3>
+        <p>The provider could delete critical DNS records, instantly taking all services offline (website, email, e-shop).</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Document all current DNS records immediately (before announcing migration)</li>
+                <li>Use online tools to query and record current DNS configuration</li>
+                <li>Set up monitoring to alert on DNS changes (e.g., DNS monitoring services)</li>
+                <li>For aigaia.com.cy: Change nameservers to client-controlled DNS before migration announcement</li>
+            </ul>
+        </div>
+
+        <h3>Threat: Pointing domains to malicious or inappropriate content</h3>
+        <p>The provider could redirect the website to harmful, embarrassing, or competitor content.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Transfer DNS control before announcing migration</li>
+                <li>Set up website monitoring to alert on content changes</li>
+                <li>Document any malicious redirects as evidence for potential legal action</li>
+            </ul>
+        </div>
+
+        <h2 id="section4-3">4.3 Website and Hosting Threats</h2>
+
+        <h3>Threat: Refusing to provide website files and database backups</h3>
+        <p>The provider could refuse to hand over WordPress files, themes, plugins, and database exports.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Install WordPress backup plugin immediately (e.g., UpdraftPlus, All-in-One WP Migration)</li>
+                <li>Run regular automated backups to client-controlled cloud storage</li>
+                <li>Test backup restoration on a staging environment</li>
+                <li>Use web scraping tools as last resort to capture content</li>
+            </ul>
+        </div>
+
+        <h3>Threat: Deleting website content or defacing the site</h3>
+        <p>The provider could delete or modify website content maliciously.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Create complete backup before any migration communication</li>
+                <li>Archive website using Wayback Machine (archive.org) for historical record</li>
+                <li>Set up visual monitoring to detect changes (e.g., Visualping)</li>
+            </ul>
+        </div>
+
+        <h3>Threat: Shutting down hosting immediately upon notice</h3>
+        <p>The provider could terminate hosting access before migration is complete.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Have new hosting environment fully prepared and tested before announcing migration</li>
+                <li>Ensure all backups are current and tested for restoration</li>
+                <li>Review contract for notice period requirements</li>
+                <li>Document any breach of contract terms for potential legal recourse</li>
+            </ul>
+        </div>
+
+        <h2 id="section4-4">4.4 E-Shop Specific Threats (CRITICAL)</h2>
+
+        <div class="alert alert-danger">
+            <strong>⚠️ Highest Risk Area:</strong> The custom-built e-shop represents the most significant vulnerability in this migration.
+        </div>
+
+        <h3>Threat: Refusing to provide e-shop source code</h3>
+        <p>As a custom-built platform, the e-shop code may be considered SKWebline's intellectual property unless the contract specifies otherwise.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Review contract for intellectual property clauses regarding custom development</li>
+                <li>Request source code handover in writing as part of normal service transition</li>
+                <li>If refused, prepare contingency to rebuild on standard e-commerce platform (see Section 7)</li>
+                <li>Document current functionality thoroughly (screenshots, user flows, features list)</li>
+            </ul>
+        </div>
+
+        <h3>Threat: Refusing to provide customer and order database</h3>
+        <p>Loss of customer data and order history would be catastrophic for business continuity.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Export all accessible data through admin panel immediately (products, orders, customers)</li>
+                <li>Request database exports as part of regular "backup" rather than migration</li>
+                <li>Customer data belongs to the client under GDPR - use this as leverage if necessary</li>
+                <li>Maintain separate customer list export updated regularly</li>
+            </ul>
+        </div>
+
+        <h3>Threat: Breaking e-shop functionality or payment processing</h3>
+        <p>The provider could disable checkout, break payment integration, or cause data corruption.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Monitor e-shop functionality daily during transition period</li>
+                <li>Have alternative sales channel ready (even manual order taking) as fallback</li>
+                <li>Verify payment gateway credentials are under client control</li>
+            </ul>
+        </div>
+
+        <h2 id="section4-5">4.5 Email-Related Threats</h2>
+
+        <h3>Threat: Breaking email delivery (MX/SPF/DKIM records)</h3>
+        <p>The provider could modify DNS records to break email delivery. Note: DKIM is already broken since the January 2026 DNS change.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Document all current email-related DNS records (MX, SPF, DKIM, DMARC)</li>
+                <li>Office 365 is client-controlled, so email service itself is safe</li>
+                <li>Priority action: Fix DKIM records and transfer DNS control to restore full email functionality</li>
+                <li>Once DNS is client-controlled, provider cannot affect email delivery</li>
+            </ul>
+        </div>
+
+        <h2 id="section4-6">4.6 Data and Privacy Threats</h2>
+
+        <h3>Threat: Retaining or misusing customer data</h3>
+        <p>The provider may retain copies of customer data after termination.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Include data deletion requirement in termination notice</li>
+                <li>Request written confirmation of data deletion under GDPR</li>
+                <li>Review contract for data processing agreement terms</li>
+            </ul>
+        </div>
+
+        <h3>Threat: Accessing accounts after termination</h3>
+        <p>The provider may attempt to retain access to services.</p>
+        <div class="mitigation">
+            <strong>Mitigation:</strong>
+            <ul>
+                <li>Change all passwords immediately after migration completion</li>
+                <li>Review and revoke all API keys and access tokens</li>
+                <li>Remove SKWebline from Office 365 partner relationships</li>
+                <li>Audit all service access logs for 90 days post-migration</li>
+            </ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 5: Immediate Actions -->
+        <h1 id="section5">5. Immediate Actions (Before Announcing Migration)</h1>
+        
+        <div class="alert alert-warning">
+            <strong>⚠️ Important:</strong> These actions should be completed BEFORE informing SKWebline of the intention to migrate. This is critical to secure assets while cooperation is still assumed.
+        </div>
+
+        <h2>5.1 Week 1-2: Documentation and Evidence Gathering</h2>
+        <ol>
+            <li>Locate and secure all contracts and agreements with SKWebline</li>
+            <li>Gather all invoices related to domain registrations and hosting</li>
+            <li>Document all email correspondence regarding services</li>
+            <li>Screenshot all admin panel access (WordPress, e-shop, Office 365)</li>
+            <li>Record all current DNS records for all domains using online lookup tools</li>
+            <li>Archive all websites using Wayback Machine</li>
+        </ol>
+
+        <h2>5.2 Week 2-4: Securing Backups</h2>
+        <ol>
+            <li>Install WordPress backup plugin and run full backup to external storage</li>
+            <li>Export all e-shop data accessible through admin (products, categories, orders, customers)</li>
+            <li>Document all e-shop functionality with screenshots and user flow diagrams</li>
+            <li>Export all Brevo subscriber lists and campaign history</li>
+            <li>Export Office 365 data (mailboxes, SharePoint, OneDrive) as additional safety measure</li>
+            <li>Test WordPress backup restoration on a separate hosting account</li>
+        </ol>
+
+        <h2>5.3 Week 4-6: Domain Ownership Clarification</h2>
+        <ol>
+            <li>Contact NETIM directly to verify registrant details for theatroaigaia.com and artshopaigaia.com</li>
+            <li>If registered to client: Request direct account access from NETIM</li>
+            <li>If registered to SKWebline: Prepare documentation proving client paid for registrations</li>
+            <li>Verify aigaia.com.cy renewal is on calendar (expires 31/12/2026)</li>
+            <li>Confirm client can renew aigaia.com.cy directly through nic.cy</li>
+        </ol>
+
+        <h2>5.4 Week 6-8: DNS Control Recovery</h2>
+        <ol>
+            <li>Create new Cloudflare account under client control</li>
+            <li>Prepare DNS zone file with all current records (ready for quick transfer)</li>
+            <li>For aigaia.com.cy: Change nameservers in nic.cy to point to new client-controlled Cloudflare</li>
+            <li>Verify all services continue working after DNS transfer</li>
+            <li>Fix DKIM records for aigaia.com.cy to restore newsletter deliverability</li>
+            <li>Fix DKIM records for theatroaigaia.com in existing Cloudflare (or request from provider)</li>
+        </ol>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 6: New Provider Selection -->
+        <h1 id="section6">6. New Provider Selection</h1>
+
+        <h2>6.1 Required Capabilities</h2>
+        <p>The new provider must demonstrate competence in:</p>
+        <ol>
+            <li>Domain registration and management (preferably supporting .cy domains)</li>
+            <li>DNS management with proper SPF, DKIM, DMARC configuration</li>
+            <li>WordPress hosting with automated backups</li>
+            <li>E-commerce platform hosting (or willingness to migrate to standard platform)</li>
+            <li>PHP application hosting if maintaining custom e-shop</li>
+            <li>SSL certificate management</li>
+            <li>Office 365 integration experience (not required for hosting, but for DNS configuration)</li>
+        </ol>
+
+        <h2>6.2 Contract Requirements</h2>
+        <div class="alert alert-info">
+            <strong>The contract with any new provider MUST explicitly state:</strong>
+            <ul>
+                <li>All domains registered in client's name with client as registrant contact</li>
+                <li>Client receives direct access to domain registrar accounts</li>
+                <li>Client receives direct access to DNS management (or shared access)</li>
+                <li>All custom code developed is owned by client (work-for-hire)</li>
+                <li>Regular automated backups accessible to client</li>
+                <li>Clear termination terms including asset handover procedures</li>
+                <li>Notice period requirements (minimum 30 days recommended)</li>
+                <li>Data deletion confirmation upon termination</li>
+            </ul>
+        </div>
+
+        <h2>6.3 Provider Evaluation Checklist</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Criterion</th>
+                    <th>Weight</th>
+                    <th>Score (1-5)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Transparent access policy (client gets direct logins)</td><td><strong>Critical</strong></td><td></td></tr>
+                <tr><td>Experience with WordPress migrations</td><td>High</td><td></td></tr>
+                <tr><td>E-commerce platform expertise</td><td>High</td><td></td></tr>
+                <tr><td>DNS/Email configuration expertise</td><td>High</td><td></td></tr>
+                <tr><td>Local presence/support (Cyprus preferred)</td><td>Medium</td><td></td></tr>
+                <tr><td>24/7 support availability</td><td>Medium</td><td></td></tr>
+                <tr><td>Automated backup solution</td><td>High</td><td></td></tr>
+                <tr><td>Clear contract terms on ownership</td><td><strong>Critical</strong></td><td></td></tr>
+                <tr><td>References from similar clients</td><td>Medium</td><td></td></tr>
+                <tr><td>Competitive pricing</td><td>Low</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 7: E-Shop Contingency -->
+        <h1 id="section7">7. E-Shop Contingency Planning</h1>
+        <p>Given the custom nature of the e-shop and uncertainty about source code ownership, a contingency plan for rebuilding must be prepared.</p>
+
+        <h2>7.1 If Source Code is Provided</h2>
+        <ul>
+            <li>New provider reviews code for security and maintainability</li>
+            <li>Deploy to new hosting environment</li>
+            <li>Migrate database</li>
+            <li>Reconfigure BoxNow shipping integration</li>
+            <li>Test thoroughly before DNS cutover</li>
+        </ul>
+
+        <h2>7.2 If Source Code is NOT Provided</h2>
+        <p>Recommended approach: Migrate to a standard e-commerce platform.</p>
+
+        <h3>Platform Options</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Pros</th>
+                    <th>Cons</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>WooCommerce</td>
+                    <td>Integrates with existing WordPress, large plugin ecosystem, lower cost</td>
+                    <td>Requires more maintenance</td>
+                </tr>
+                <tr>
+                    <td>Shopify</td>
+                    <td>Fully managed, reliable, good shipping integrations</td>
+                    <td>Monthly fees, less customisable</td>
+                </tr>
+                <tr>
+                    <td>Magento/Adobe Commerce</td>
+                    <td>Highly customisable, enterprise features</td>
+                    <td>Complex, expensive</td>
+                </tr>
+                <tr>
+                    <td>PrestaShop</td>
+                    <td>Open source, EU-focused, good for European compliance</td>
+                    <td>Smaller community</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Data Migration Requirements</h3>
+        <ul>
+            <li>Product catalogue (names, descriptions, prices, images, categories)</li>
+            <li>Customer accounts (email addresses, names, addresses)</li>
+            <li>Order history (for customer reference and accounting)</li>
+            <li>BoxNow shipping integration (may need custom development)</li>
+        </ul>
+
+        <h3>Rebuild Timeline Estimate</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Platform selection and setup</td><td>1-2 weeks</td></tr>
+                <tr><td>Theme/design implementation</td><td>2-4 weeks</td></tr>
+                <tr><td>Product data migration</td><td>1-2 weeks</td></tr>
+                <tr><td>BoxNow integration</td><td>1-2 weeks</td></tr>
+                <tr><td>Payment gateway setup</td><td>1 week</td></tr>
+                <tr><td>Testing and refinement</td><td>2 weeks</td></tr>
+                <tr><td><strong>TOTAL</strong></td><td><strong>8-13 weeks</strong></td></tr>
+            </tbody>
+        </table>
+        <div class="alert alert-warning">
+            <strong>Allow 3-4 months for e-shop rebuild if source code is not provided.</strong>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 8: Migration Timeline -->
+        <h1 id="section8">8. Migration Timeline</h1>
+
+        <h2>8.1 Phase 1: Preparation (February - April 2026)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timeframe</th>
+                    <th>Actions</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Feb Week 1-2</td><td>Complete Immediate Actions (Section 5.1-5.2)</td><td>Client + IT Consultant</td></tr>
+                <tr><td>Feb Week 3-4</td><td>Clarify domain ownership (Section 5.3)</td><td>Client</td></tr>
+                <tr><td>Mar Week 1-2</td><td>Recover DNS control for aigaia.com.cy</td><td>Client + IT Consultant</td></tr>
+                <tr><td>Mar Week 3-4</td><td>Begin new provider evaluation</td><td>Client + IT Consultant</td></tr>
+                <tr><td>Apr Week 1-2</td><td>Select new provider, sign contract</td><td>Client</td></tr>
+                <tr><td>Apr Week 3-4</td><td>New provider begins environment setup</td><td>New Provider</td></tr>
+            </tbody>
+        </table>
+
+        <h2>8.2 Phase 2: Build and Test (May - July 2026)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timeframe</th>
+                    <th>Actions</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>May</td><td>Set up new hosting environment for WordPress</td><td>New Provider</td></tr>
+                <tr><td>May</td><td>Request source code from SKWebline (via normal support)</td><td>Client</td></tr>
+                <tr><td>May-Jun</td><td>E-shop: Deploy existing code OR begin rebuild</td><td>New Provider</td></tr>
+                <tr><td>Jun</td><td>Restore WordPress from backup to new environment</td><td>New Provider</td></tr>
+                <tr><td>Jun-Jul</td><td>Complete e-shop migration/rebuild</td><td>New Provider</td></tr>
+                <tr><td>Jul</td><td>Full testing of all services on new infrastructure</td><td>Client + New Provider</td></tr>
+            </tbody>
+        </table>
+
+        <h2>8.3 Phase 3: Transition (August 2026)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timeframe</th>
+                    <th>Actions</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Aug Week 1</td><td>Formal written notice to SKWebline of termination</td><td>Client</td></tr>
+                <tr><td>Aug Week 1</td><td>Request domain transfers for theatroaigaia.com and artshopaigaia.com</td><td>Client</td></tr>
+                <tr><td>Aug Week 2-3</td><td>Domain transfer processing (5-7 days typical)</td><td>Registrars</td></tr>
+                <tr><td>Aug Week 3-4</td><td>Final data synchronisation (orders, products)</td><td>New Provider</td></tr>
+                <tr><td>Aug Week 4</td><td>DNS cutover preparation (prepare all records)</td><td>New Provider</td></tr>
+            </tbody>
+        </table>
+
+        <h2>8.4 Phase 4: Cutover (September 2026)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timeframe</th>
+                    <th>Actions</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Sep Week 1</td><td>Final backup from old environment</td><td>Client + New Provider</td></tr>
+                <tr><td>Sep Week 1</td><td>DNS cutover (point domains to new hosting)</td><td>New Provider</td></tr>
+                <tr><td>Sep Week 1</td><td>Verify all services operational</td><td>Client + New Provider</td></tr>
+                <tr><td>Sep Week 2</td><td>Monitor for issues, address any problems</td><td>New Provider</td></tr>
+                <tr><td>Sep Week 3-4</td><td>Post-migration verification and cleanup</td><td>Client + New Provider</td></tr>
+                <tr><td>Sep Week 4</td><td>Formal confirmation of SKWebline contract end</td><td>Client</td></tr>
+            </tbody>
+        </table>
+
+        <h2>8.5 Phase 5: Post-Migration (October 2026)</h2>
+        <ul>
+            <li>Change all passwords and revoke old access tokens</li>
+            <li>Remove SKWebline from Office 365 partner relationships</li>
+            <li>Request written confirmation of data deletion from SKWebline</li>
+            <li>Monitor service stability for 30 days</li>
+            <li>Document lessons learned</li>
+            <li>Establish regular backup verification schedule with new provider</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 9: Communication Strategy -->
+        <h1 id="section9">9. Communication Strategy</h1>
+
+        <h2>9.1 Internal Communication</h2>
+        <p>Before announcing to SKWebline:</p>
+        <ul>
+            <li>Brief all staff who have contact with SKWebline</li>
+            <li>Ensure no one discusses migration plans until official announcement</li>
+            <li>Prepare staff for potential service disruptions</li>
+        </ul>
+
+        <h2>9.2 SKWebline Communication</h2>
+        <p>Recommended approach: Professional, factual, and documented.</p>
+
+        <h3>Initial Termination Notice (August 2026)</h3>
+        <p>Send via email with read receipt AND registered post. Include:</p>
+        <ul>
+            <li>Formal notice of contract termination effective end of September 2026</li>
+            <li>Request for all assets: domain transfers, source code, database exports</li>
+            <li>Request for Cloudflare account access or DNS zone file export</li>
+            <li>Timeline for handover activities</li>
+            <li>Request for confirmation of data deletion post-termination</li>
+        </ul>
+
+        <h3>Key Principles</h3>
+        <ul>
+            <li>Keep all communication in writing</li>
+            <li>Remain professional regardless of response</li>
+            <li>Document any refusals or delays</li>
+            <li>Do not make threats or accusations</li>
+            <li>Follow up in writing if verbal agreements are made</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 10: Legal Considerations -->
+        <h1 id="section10">10. Legal Considerations</h1>
+
+        <h2>10.1 Contract Review</h2>
+        <p>If a contract with SKWebline is located, review for:</p>
+        <ul>
+            <li>Intellectual property ownership clauses (who owns custom code?)</li>
+            <li>Asset ownership clauses (domains, content, data)</li>
+            <li>Termination terms and notice periods</li>
+            <li>Data handling and deletion requirements</li>
+            <li>Dispute resolution mechanisms</li>
+        </ul>
+
+        <h2>10.2 GDPR Considerations</h2>
+        <div class="alert alert-info">
+            <strong>Under GDPR, the client (as data controller) has specific rights:</strong>
+            <ul>
+                <li>Customer data belongs to the client, not the provider</li>
+                <li>Provider must provide data export in usable format</li>
+                <li>Provider must delete data upon termination (unless legal retention required)</li>
+                <li>Provider cannot use customer data for own purposes</li>
+            </ul>
+        </div>
+
+        <h2>10.3 ICANN Domain Dispute Process</h2>
+        <p>If SKWebline refuses to transfer .com domains:</p>
+        <ul>
+            <li>File complaint with ICANN (icann.org/wicf) for registrar non-compliance</li>
+            <li>Contact NETIM directly with proof of ownership</li>
+            <li>Consider UDRP (Uniform Domain-Name Dispute-Resolution Policy) if ownership disputed</li>
+        </ul>
+
+        <h2>10.4 When to Engage Legal Counsel</h2>
+        <p>Consider engaging a lawyer if:</p>
+        <ul>
+            <li>SKWebline claims ownership of domains registered in their name</li>
+            <li>SKWebline refuses to provide e-shop source code and claims IP ownership</li>
+            <li>SKWebline takes destructive action causing business harm</li>
+            <li>SKWebline demands payment beyond contracted amounts</li>
+            <li>Contract terms are disputed or unclear</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 11: Migration Checklist -->
+        <h1 id="section11">11. Migration Checklist</h1>
+
+        <h2>11.1 Pre-Migration Checklist</h2>
+        <table class="checklist">
+            <thead>
+                <tr>
+                    <th>✓</th>
+                    <th>Task</th>
+                    <th>Date Complete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>☐</td><td>All contracts and invoices collected</td><td></td></tr>
+                <tr><td>☐</td><td>WordPress backup completed and tested</td><td></td></tr>
+                <tr><td>☐</td><td>E-shop data exported (products, customers, orders)</td><td></td></tr>
+                <tr><td>☐</td><td>E-shop functionality documented</td><td></td></tr>
+                <tr><td>☐</td><td>All DNS records documented</td><td></td></tr>
+                <tr><td>☐</td><td>Domain ownership clarified for all domains</td><td></td></tr>
+                <tr><td>☐</td><td>Client Cloudflare account created</td><td></td></tr>
+                <tr><td>☐</td><td>aigaia.com.cy DNS transferred to client Cloudflare</td><td></td></tr>
+                <tr><td>☐</td><td>DKIM fixed for email domains</td><td></td></tr>
+                <tr><td>☐</td><td>New provider selected and contracted</td><td></td></tr>
+                <tr><td>☐</td><td>New hosting environment ready</td><td></td></tr>
+                <tr><td>☐</td><td>WordPress restored on new hosting</td><td></td></tr>
+                <tr><td>☐</td><td>E-shop migrated/rebuilt on new hosting</td><td></td></tr>
+                <tr><td>☐</td><td>All services tested on new infrastructure</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2>11.2 Cutover Day Checklist</h2>
+        <table class="checklist">
+            <thead>
+                <tr>
+                    <th>✓</th>
+                    <th>Task</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>☐</td><td>Final backup taken from old environment</td><td></td></tr>
+                <tr><td>☐</td><td>DNS records updated for aigaia.com.cy</td><td></td></tr>
+                <tr><td>☐</td><td>DNS records updated for theatroaigaia.com</td><td></td></tr>
+                <tr><td>☐</td><td>DNS records updated for artshopaigaia.com</td><td></td></tr>
+                <tr><td>☐</td><td>Website accessible at aigaia.com.cy</td><td></td></tr>
+                <tr><td>☐</td><td>E-shop accessible at artshopaigaia.com</td><td></td></tr>
+                <tr><td>☐</td><td>Email sending/receiving functional</td><td></td></tr>
+                <tr><td>☐</td><td>Newsletter sending functional from theatroaigaia.com</td><td></td></tr>
+                <tr><td>☐</td><td>E-shop checkout process tested</td><td></td></tr>
+                <tr><td>☐</td><td>SSL certificates valid on all domains</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2>11.3 Post-Migration Checklist</h2>
+        <table class="checklist">
+            <thead>
+                <tr>
+                    <th>✓</th>
+                    <th>Task</th>
+                    <th>Date Complete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>☐</td><td>All passwords changed</td><td></td></tr>
+                <tr><td>☐</td><td>SKWebline removed from Office 365 partners</td><td></td></tr>
+                <tr><td>☐</td><td>All API keys rotated</td><td></td></tr>
+                <tr><td>☐</td><td>Data deletion confirmation received from SKWebline</td><td></td></tr>
+                <tr><td>☐</td><td>30-day stability monitoring completed</td><td></td></tr>
+                <tr><td>☐</td><td>Backup schedule established with new provider</td><td></td></tr>
+                <tr><td>☐</td><td>All access credentials documented securely</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <!-- Appendix -->
+        <h1 id="appendix">Appendix A: Technical Reference</h1>
+
+        <h2>A.1 Current DNS Records to Document</h2>
+        <p>Use online tools (e.g., mxtoolbox.com, dnschecker.org) to query and record:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Record Type</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>A</td><td>Points domain to web server IP address</td></tr>
+                <tr><td>AAAA</td><td>Points domain to IPv6 address</td></tr>
+                <tr><td>CNAME</td><td>Aliases for subdomains (www, mail, etc.)</td></tr>
+                <tr><td>MX</td><td>Mail server routing (critical for email)</td></tr>
+                <tr><td>TXT (SPF)</td><td>Email authentication - who can send email</td></tr>
+                <tr><td>TXT (DKIM)</td><td>Email signing verification</td></tr>
+                <tr><td>TXT (DMARC)</td><td>Email policy enforcement</td></tr>
+                <tr><td>NS</td><td>Nameserver delegation</td></tr>
+            </tbody>
+        </table>
+
+        <h2>A.2 Office 365 DNS Requirements</h2>
+        <p>When migrating DNS, ensure these records point to Microsoft:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Record</th>
+                    <th>Type</th>
+                    <th>Value (typical)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>MX</td><td>Mail Exchange</td><td>aigaia-com-cy.mail.protection.outlook.com</td></tr>
+                <tr><td>autodiscover</td><td>CNAME</td><td>autodiscover.outlook.com</td></tr>
+                <tr><td>SPF</td><td>TXT</td><td>v=spf1 include:spf.protection.outlook.com -all</td></tr>
+                <tr><td>DKIM</td><td>CNAME x2</td><td>selector1/selector2._domainkey</td></tr>
+            </tbody>
+        </table>
+
+        <h2>A.3 Useful Tools and Resources</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tool</th>
+                    <th>URL / Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>ICANN Lookup</td><td>lookup.icann.org - WHOIS domain information</td></tr>
+                <tr><td>MXToolbox</td><td>mxtoolbox.com - DNS, email, and network diagnostics</td></tr>
+                <tr><td>DNS Checker</td><td>dnschecker.org - Global DNS propagation check</td></tr>
+                <tr><td>Wayback Machine</td><td>archive.org - Website archiving</td></tr>
+                <tr><td>nic.cy</td><td>nic.cy - Cyprus domain registry</td></tr>
+                <tr><td>NETIM</td><td>netim.com - Registrar for .com domains</td></tr>
+                <tr><td>ICANN Complaints</td><td>icann.org/wicf - Domain dispute filing</td></tr>
+            </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <p style="text-align: center; color: #666; font-style: italic; margin-top: 50px;">— End of Document —</p>
+
+    </div>
+
+    <a href="#top" class="back-to-top no-print" title="Back to top">↑</a>
+
+</body>
+</html>
